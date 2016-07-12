@@ -47,7 +47,7 @@ namespace LaQuiz.iOS.Services
             NSUrl url;
             SystemSound systemSound;
 
-            url = NSUrl.FromFilename("Sounds/HighScore.mp3");
+            url = NSUrl.FromFilename("Sounds/billionaire.mp3");
             systemSound = new SystemSound(url);
             systemSound.PlayAlertSound();
             return true;

@@ -34,7 +34,9 @@ namespace LaQuiz.Droid.Services
 
         public bool PlayWinSound()
         {
-            throw new NotImplementedException();
+            _mediaPlayer = MediaPlayer.Create(global::Android.App.Application.Context, Resource.Raw.billionaire);
+            _mediaPlayer.Start();
+            return true;           
         }
 
        public bool PlayCountdown(bool on_off)

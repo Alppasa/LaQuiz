@@ -2962,13 +2962,16 @@ namespace LaQuiz.Droid
 			public const int applause = 2131099648;
 			
 			// aapt resource value: 0x7f060001
-			public const int countdown = 2131099649;
+			public const int billionaire = 2131099649;
 			
 			// aapt resource value: 0x7f060002
-			public const int FaildSound = 2131099650;
+			public const int countdown = 2131099650;
 			
 			// aapt resource value: 0x7f060003
-			public const int HighScore = 2131099651;
+			public const int FaildSound = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int HighScore = 2131099652;
 			
 			static Raw()
 			{

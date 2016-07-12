@@ -171,6 +171,7 @@
     <BundleResource Include="Images\blurnavy.jpg" />
     <BundleResource Include="Images\navy.jpg" />
     <Content Include="Sounds\applause.mp3" />
+    <AndroidResource Include="Sounds\billionaire.mp3" />
     <Content Include="Sounds\countdown.mp3" />
     <Content Include="Sounds\FaildSound.mp3" />
     <Content Include="Sounds\HighScore.mp3" />
