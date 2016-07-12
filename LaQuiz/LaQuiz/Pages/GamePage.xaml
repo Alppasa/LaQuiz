@@ -12,6 +12,7 @@
                     WinPhone="Assets/navy.jpg" />
     </ContentPage.BackgroundImage>
 
+  
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="0,20,0,0"
@@ -21,7 +22,13 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="LabeStyle" TargetType="Label">
+          <Style x:Key="BittonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderRadius" Value="5"/>
+            <Setter Property="WidthRequest" Value="150"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+          </Style>
+          <Style x:Key="LabeStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="40" />
                 <Setter Property="Margin" Value="12,0" />
             </Style>
@@ -45,19 +52,13 @@
     <StackLayout>
         <Grid>
             <Grid.RowDefinitions>
-
                 <RowDefinition Height="Auto" />
-
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-
                 <ColumnDefinition Width="*" />
-
                 <ColumnDefinition Width="2*" />
-
                 <ColumnDefinition Width="*" />
-
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0"
@@ -117,11 +118,11 @@
             </Label>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
-            <Button Text="Abbrechen" BorderRadius="5" WidthRequest="150" BackgroundColor="#B8D8805E" HorizontalOptions="CenterAndExpand"
+            <Button Text="Abbrechen" Style="{StaticResource BittonStyle}" BackgroundColor="#B8D8805E"
                     Clicked="OnCancelPressed" />
-            <Button x:Name="NextBtn" Text="Next" BorderRadius="5" WidthRequest="150" BackgroundColor="#B14CD841"
-                    HorizontalOptions="CenterAndExpand" Clicked="OnNextPressed" IsEnabled="False"/>
+            <Button x:Name="NextBtn" Text="Next" Style="{StaticResource BittonStyle}" BackgroundColor="#B14CD841"
+                    Clicked="OnNextPressed" IsEnabled="False" />
         </StackLayout>
     </StackLayout>
 
-</ContentPage>
+</ContentPage> 

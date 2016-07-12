@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace LaQuiz.Droid
 {
-    [Activity(Label = "LaQuiz", Icon = "@drawable/DasQuizLogo", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "LaQuiz", Icon = "@drawable/LaQuizLogo", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
