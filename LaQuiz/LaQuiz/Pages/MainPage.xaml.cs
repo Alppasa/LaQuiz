@@ -14,7 +14,8 @@ namespace LaQuiz.Pages
 {
     public partial class MainPage : ContentPage
     {
-        private readonly ObservableCollection<SpielerItem> SpielerCollection = new ObservableCollection<SpielerItem>(App.SpielerDatabase.GetSpieler());
+        private readonly ObservableCollection<SpielerItem> SpielerCollection =
+            new ObservableCollection<SpielerItem>(App.SpielerDatabase.GetSpieler());
 
         public MainPage()
         {
@@ -26,9 +27,8 @@ namespace LaQuiz.Pages
             //Btn Events
             DeleteBtn.Clicked += (sender, args) => DeleteClicked();
             addBtn.Clicked += (sender, args) => AddBtnClicked();
-
         }
- 
+
         /// <summary>
         /// Bei Auswahl eines Spielers das Spiel starten
         /// </summary>
@@ -38,22 +38,21 @@ namespace LaQuiz.Pages
             {
                 return;
             }
-            var spieler = (SpielerItem)e.SelectedItem;
+            var spieler = (SpielerItem) e.SelectedItem;
 
-            var answer = await DisplayAlert("Start", "Hallo " + spieler.SpielerName + "!\nBist du bereit?", "Ja", "Nein");
+            var answer =
+                await DisplayAlert("Start", "Hallo " + spieler.SpielerName + "!\nBist du bereit?", "Ja", "Nein");
             if (answer)
                 await Navigation.PushModalAsync(new GamePage(new QuizViewModel(spieler)));
             else
                 BenutzerListView.SelectedItem = null;
-
         }
 
 
         private void OnDelete(object sender, EventArgs e)
         {
-
             //var item = (MenuItem)sender;
-            SpielerItem spieler = (SpielerItem)BenutzerListView.SelectedItem;
+            SpielerItem spieler = (SpielerItem) BenutzerListView.SelectedItem;
             var db = new SpielerDatabase();
         }
 
@@ -92,19 +91,19 @@ namespace LaQuiz.Pages
                 await DisplayAlert("Löschen", " Achtung!\n Möchtest du wirklich\n alle Spieler löschen?", "Ja", "Nein");
             if (answer)
             {
-                            var dba = DependencyService.Get<ISQLite>().GetConnection();
-            var db = new SpielerDatabase();
+                var dba = DependencyService.Get<ISQLite>().GetConnection();
+                var db = new SpielerDatabase();
 
-            //Nuter löschen
-            db.DeleteFromDb();
+                //Nuter löschen
+                db.DeleteFromDb();
 
-            //ListeView aktuellisieren
-            BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
+                //ListeView aktuellisieren
+                BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
             }
-
         }
 
         #endregion
+
         public void StartGameNavigation()
         {
             if (BenutzerListView.SelectedItem == null)

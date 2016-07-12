@@ -208,13 +208,14 @@ namespace LaQuiz.Pages
 
         public async void OnCancelPressed(object sender, EventArgs e)
         {
-            time = false;
-
             //Disyplay Alert
             var answer =
                 await DisplayAlert("Beenden", $" {thisModel.Spielername}, Runde wirklich Beenden?", "Ja", "Nein");
             if (answer)
             {
+                //Stop Timer
+                time = false;
+
                 //Stop Countdown Sound
                 DependencyService.Get<IAudioService>().PlayCountdown(false);
                 await Navigation.PushModalAsync(new MainPage());
