@@ -4,83 +4,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:LaQuiz.Pages;assembly=LaQuiz"
              x:Class="LaQuiz.Pages.MainPage">
-  <ContentPage.BackgroundImage>
-    <OnPlatform x:TypeArguments="x:String"
-                iOS="Images/navy.jpg"
-                Android="drawable/navy.jpg"
-                WinPhone="Assets/navy.jpg"/>
-  </ContentPage.BackgroundImage>
+    <ContentPage.BackgroundImage>
+        <OnPlatform x:TypeArguments="x:String"
+                    iOS="Images/navy.jpg"
+                    Android="drawable/navy.jpg"
+                    WinPhone="Assets/navy.jpg" />
+    </ContentPage.BackgroundImage>
 
-  <ContentPage.Padding>
-    <OnPlatform x:TypeArguments="Thickness"
-                iOS="0,20,0,0"
-                Android="0,0,0,0"
-                WinPhone="0,0,0,0"/>
-  </ContentPage.Padding>
-  <ContentPage.Resources>
-    <ResourceDictionary>
-      <OnPlatform x:Key="addBtnImage" 
-                  x:TypeArguments="x:String"
-                  iOS="Images/addBtn.png"
-                  Android="drawable/addBtnWhite"
-                  WinPhone="Assets/addBtnWhite.png"/>
-    </ResourceDictionary>
-  </ContentPage.Resources>
-  
-  <StackLayout>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0,0,0,0"
+                    WinPhone="0,0,0,0" />
+    </ContentPage.Padding>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="addBtnImage"
+                        x:TypeArguments="x:String"
+                        iOS="Images/addBtn.png"
+                        Android="drawable/addBtnWhite"
+                        WinPhone="Assets/addBtnWhite.png" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-    <StackLayout Orientation="Horizontal" BackgroundColor="#3D000000" VerticalOptions="FillAndExpand"
-                 HorizontalOptions="CenterAndExpand">
-      <Label Text="Das Quiz"
-             TextColor="White"
-             FontSize="15" Font="Large"
-             HorizontalOptions="StartAndExpand"
-             VerticalOptions="Center"
-             Margin="0,8" />
+    <StackLayout>
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand"
+                     HorizontalOptions="CenterAndExpand">
+            <Label Text="Das Quiz"
+                   TextColor="#B8D8805E"
+                   FontSize="40" Font="Large"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="Center"
+                   Margin="0,8" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="NameEntry" Placeholder="Spieler hinzufügen" Margin="16,16" HorizontalOptions="FillAndExpand"
+                   BackgroundColor="Transparent" />
+            <Button x:Name="addBtn"
+                    Image="{StaticResource addBtnImage}"
+                    HorizontalOptions="End"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="16,8" BackgroundColor="Transparent" />
+        </StackLayout>
+
+        <Label Text="Spieler auswählen" HorizontalOptions="Center" FontSize="20" TextColor="#B8D8805E" />
+        <ScrollView>
+            <!--Liste der registrierten Benutzer-->
+            <ListView x:Name="BenutzerListView" Margin="16,16" HorizontalOptions="Center" Footer=""
+                      BackgroundColor="Transparent" SeparatorColor="Transparent" ItemSelected="OnSelection">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true"
+                                          CommandParameter="{Binding .}" />
+                            </ViewCell.ContextActions>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="5,5">
+                                <Label Text="{Binding SpielerName}" Font="Micro" HorizontalOptions="Start"
+                                       FontSize="20" />
+                                <Label Text="{Binding Score}" Font="Micro" HorizontalOptions="EndAndExpand"
+                                       HorizontalTextAlignment="End"
+                                       FontSize="20" />
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <AbsoluteLayout VerticalOptions="EndAndExpand" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="DeleteBtn" Text="Alles löschen" BackgroundColor="#B8D8805E" BorderRadius="20"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End" Margin="6,15" />
+            </StackLayout>
+        </AbsoluteLayout>
+
     </StackLayout>
-
-    <StackLayout Orientation="Horizontal">
-      <Entry x:Name="NameEntry" Placeholder="Spieler hinzufügen" Margin="16,16" HorizontalOptions="FillAndExpand" />
-      <Button x:Name="addBtn"
-              Image="{StaticResource addBtnImage}"
-              HorizontalOptions="End"
-              VerticalOptions="CenterAndExpand"
-              Margin="16,8" BackgroundColor="Transparent" />
-    </StackLayout>
-
-    <Label Text="Spieler auswählen" HorizontalOptions="Center" FontSize="30" TextColor="#B8D8805E" />
-    <ScrollView>
-      <!--Liste der registrierten Benutzer-->
-      <ListView x:Name="BenutzerListView" Margin="16,16" HorizontalOptions="Center" Footer=""
-                BackgroundColor="Transparent" SeparatorColor="Transparent" ItemSelected="OnSelection">
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell>
-              <ViewCell.ContextActions>
-                <MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true"
-                          CommandParameter="{Binding .}" />
-              </ViewCell.ContextActions>
-
-              <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="5,5">
-                <Label Text="{Binding SpielerName}" Font="Micro" HorizontalOptions="Start"
-                       FontSize="20" />
-                <Label Text="{Binding Score}" Font="Micro" HorizontalOptions="EndAndExpand"
-                       HorizontalTextAlignment="End"
-                       FontSize="20" />
-              </StackLayout>
-
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-    </ScrollView>
-    <AbsoluteLayout VerticalOptions="EndAndExpand" HorizontalOptions="Center">
-      <StackLayout Orientation="Horizontal">
-        <Button x:Name="DeleteBtn" Text="Alles löschen" BackgroundColor="Red" BorderRadius="20"
-                HorizontalOptions="Center"
-                VerticalOptions="End" Margin="6,15" />
-      </StackLayout>
-    </AbsoluteLayout>
-
-  </StackLayout>
 </ContentPage>

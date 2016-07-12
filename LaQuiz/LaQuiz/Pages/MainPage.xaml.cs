@@ -89,7 +89,7 @@ namespace LaQuiz.Pages
         public async void DeleteClicked()
         {
             var answer =
-                await DisplayAlert("Löschen", "Achtung!\n Möchtest du wirklich\n alle Spieler löschen?", "Ja", "Nein");
+                await DisplayAlert("Löschen", " Achtung!\n Möchtest du wirklich\n alle Spieler löschen?", "Ja", "Nein");
             if (answer)
             {
                             var dba = DependencyService.Get<ISQLite>().GetConnection();
