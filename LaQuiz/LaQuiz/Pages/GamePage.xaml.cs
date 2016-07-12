@@ -75,10 +75,6 @@ namespace LaQuiz.Pages
                 ColorMyLabel(antwort, false);
                 NextBtn.IsEnabled = true;
 
-                //check if player has new highscore
-                if (thisModel.IsNewHigh(thisModel.Score))
-                    OnHighscore();
-
                 //on win
                 if (thisModel.Level == "16")
                     OnWin();

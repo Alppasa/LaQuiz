@@ -86,9 +86,13 @@ namespace LaQuiz.Pages
             BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
         }
 
-        public void DeleteClicked()
+        public async void DeleteClicked()
         {
-            var dba = DependencyService.Get<ISQLite>().GetConnection();
+            var answer =
+                await DisplayAlert("Löschen", "Achtung!\n Möchtest du wirklich\n alle Spieler löschen?", "Ja", "Nein");
+            if (answer)
+            {
+                            var dba = DependencyService.Get<ISQLite>().GetConnection();
             var db = new SpielerDatabase();
 
             //Nuter löschen
@@ -96,6 +100,8 @@ namespace LaQuiz.Pages
 
             //ListeView aktuellisieren
             BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
+            }
+
         }
 
         #endregion
@@ -106,11 +112,6 @@ namespace LaQuiz.Pages
                 DisplayAlert("Ups", "Bitte Spieler auswählen", "OK");
                 return;
             }
-
-            //    SpielerItem spieler = (SpielerItem)BenutzerListView.SelectedItem;  
-            //    DisplayAlert("Spieler gewählt", spieler.SpielerName + spieler.Score, "OK"); // Nur Imp check ob es richtig funktioniert später löschen?  
-            //    // Jetzt init Page mit View Model mit PLayer ITem  
-            //    Navigation.PushModalAsync(new GamePage(new QuizViewModel(spieler)));  
         }
 
         private void MainPage_OnAppearing(object sender, EventArgs e)
