@@ -107,9 +107,11 @@
     <Content Include="Assets\blur5.jpg" />
     <Content Include="Assets\blur6.jpg" />
     <Content Include="Assets\blurblue.jpg" />
+    <Content Include="Assets\blurnavy.jpg" />
     <Content Include="Assets\DasQuizLogo.png" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\navy.jpg" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />
     <Content Include="Assets\Square71x71Logo.scale-240.png" />

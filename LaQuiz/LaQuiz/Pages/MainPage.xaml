@@ -6,9 +6,9 @@
              x:Class="LaQuiz.Pages.MainPage">
   <ContentPage.BackgroundImage>
     <OnPlatform x:TypeArguments="x:String"
-                iOS="Images/blur2.jpg"
-                Android="drawable/blurblue"
-                WinPhone="Assets/blurblue.jpg"/>
+                iOS="Images/navy.jpg"
+                Android="drawable/navy.jpg"
+                WinPhone="Assets/navy.jpg"/>
   </ContentPage.BackgroundImage>
 
   <ContentPage.Padding>

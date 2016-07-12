@@ -3,11 +3,11 @@ using Foundation;
 using LaQuiz.iOS.Services;
 using LaQuiz.Interfaces;
 
-[assembly: Xamarin.Forms.Dependency(typeof(AudioService))]
+[assembly: Xamarin.Forms.Dependency(typeof(AudioService_IOS))]
 
 namespace LaQuiz.iOS.Services
 {
-    class AudioService : IAudioService
+    class AudioService_IOS : IAudioService
     {
         public bool PlayFaildSound()
         {
@@ -60,7 +60,12 @@ namespace LaQuiz.iOS.Services
 
             url = NSUrl.FromFilename("Sounds/countdown.mp3");
             systemSound = new SystemSound(url);
+            if(on_off)
             systemSound.PlayAlertSound();
+            else
+            {
+                systemSound.Close();
+            }
             return true;
         }
     }

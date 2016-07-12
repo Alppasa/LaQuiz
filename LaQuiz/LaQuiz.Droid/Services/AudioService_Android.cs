@@ -3,11 +3,11 @@ using Android.Media;
 using LaQuiz.Droid.Services;
 using LaQuiz.Interfaces;
 
-[assembly: Xamarin.Forms.Dependency(typeof(AudioService))]
+[assembly: Xamarin.Forms.Dependency(typeof(AudioService_Android))]
 
 namespace LaQuiz.Droid.Services
 {
-   public  class AudioService : IAudioService
+   public  class AudioService_Android : IAudioService
    {
        private MediaPlayer _mediaPlayer;
 
