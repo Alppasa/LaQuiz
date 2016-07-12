@@ -43,7 +43,7 @@ namespace LaQuiz.Droid.Services
             if(on_off)
             _mediaPlayer.Start();
             else                
-            _mediaPlayer.Stop();
+            _mediaPlayer.Pause();
             return true;
         }
    }

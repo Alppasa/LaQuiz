@@ -27,10 +27,6 @@ namespace LaQuiz.Pages
             DeleteBtn.Clicked += (sender, args) => DeleteClicked();
             addBtn.Clicked += (sender, args) => AddBtnClicked();
 
-            BenutzerListView.ItemTapped += (sender, args) =>
-            {
-                DisplayAlert("a", "a", "a");
-            };
         }
  
         /// <summary>

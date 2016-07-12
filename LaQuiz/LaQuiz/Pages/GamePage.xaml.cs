@@ -58,14 +58,13 @@ namespace LaQuiz.Pages
             //Stop ProgressBar
             //progressBar.AbortAnimation("SetProgress");
 
-            //Gwt selected Antwort
-            var a = (Label)sender;
+            //Get selected Antwort
+            var a = (Label) sender;
             var antwort = a.ClassId;
 
             //Check auf Antwort + Highlighten
             if (antwort == thisModel.Correct)
             {
-
                 //Play sound
                 DependencyService.Get<IAudioService>().PlayCorrectSound();
 
@@ -75,6 +74,10 @@ namespace LaQuiz.Pages
                 //on right answer
                 ColorMyLabel(antwort, false);
                 NextBtn.IsEnabled = true;
+
+                //check if player has new highscore
+                if (thisModel.IsNewHigh(thisModel.Score))
+                    OnHighscore();
 
                 //on win
                 if (thisModel.Level == "16")
@@ -115,47 +118,50 @@ namespace LaQuiz.Pages
 
         public async void OnWrongAnswer()
         {
-            bool nextGame = false;
             time = false;
 
+            //check if player has new highscore
             if (thisModel.IsNewHigh(thisModel.Score))
-            {
-                //NEW HIGH SCORE
-                var db = new SpielerDatabase();
-                db.Update(thisModel.Spielername, thisModel.Score);
-                thisModel.Highscore = thisModel.Score;
+                OnHighscore();
 
-                // NEW HIGH SCORE SOUND
-                DependencyService.Get<IAudioService>().PlayHighScore();
-
-                await Task.Delay(2500);
-                var answer = await DisplayAlert(
-                    $"Glückwunsch {thisModel.Spielername}!",
-                    $"Du hast einen neuen Highscore: {thisModel.Score}\nErneut Spielen?", "Ja", "Nein");
-                nextGame = answer;
-            }
             else
             {
+                //Play faild sound
                 DependencyService.Get<IAudioService>().PlayFaildSound();
 
                 await Task.Delay(2000);
+
+                //Show display alert
                 var answer = await DisplayAlert(
                     $" Falsche Antwort {thisModel.Spielername}, aber du hast {thisModel.Score} gewonnen",
                     "Erneut Spielen?", "Ja", "Nein");
-                nextGame = answer;
-           }
-            if (nextGame)
-            {
-                //await Navigation.PopModalAsync();
-                await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
+                if (answer)
+                    await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
+
             }
-            else
+                
+        }
+
+        public async void OnHighscore()
+        {
+
+            //NEW HIGH SCORE
+            var db = new SpielerDatabase();
+            db.Update(thisModel.Spielername, thisModel.Score);
+            thisModel.Highscore = thisModel.Score;
+
+            await Task.Delay(1500);
+            // NEW HIGH SCORE SOUND
+            DependencyService.Get<IAudioService>().PlayHighScore();
+            var answer = await DisplayAlert(
+                $"Glückwunsch {thisModel.Spielername}!",
+                $"Du hast einen neuen Highscore: {thisModel.Score}\nErneut Spielen?", "Ja", "Nein");
+            if (!answer)
                 await Navigation.PushModalAsync(new MainPage());
         }
 
         public async void OnWin()
         {
-
             //Play sound
             DependencyService.Get<IAudioService>().PlayFaildSound();
 
@@ -164,7 +170,9 @@ namespace LaQuiz.Pages
             thisModel.Highscore = thisModel.Score;
 
 
-            var answer = await DisplayAlert($"Jetzt bist du Millionär ;) Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
+            var answer =
+                await
+                    DisplayAlert($"Jetzt bist du Millionär ;) Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
             if (answer)
             {
                 await Navigation.PopModalAsync();
@@ -177,11 +185,11 @@ namespace LaQuiz.Pages
 
         public async void OnTimePassed()
         {
-
             Task.Delay(3000);
             DependencyService.Get<IAudioService>().PlayFaildSound();
 
-            var answer = await DisplayAlert($"Zeit ist abgelaufen Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
+            var answer =
+                await DisplayAlert($"Zeit ist abgelaufen Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
             if (answer)
             {
                 await Navigation.PopModalAsync();
@@ -202,10 +210,11 @@ namespace LaQuiz.Pages
         public async void OnCancelPressed(object sender, EventArgs e)
         {
             time = false;
-            var answer = await DisplayAlert("Beenden", $" {thisModel.Spielername}, Runde wirklich Beenden?", "Ja", "Nein");
+            var answer =
+                await DisplayAlert("Beenden", $" {thisModel.Spielername}, Runde wirklich Beenden?", "Ja", "Nein");
             if (answer)
-            //    await Navigation.PopModalAsync();
-            await Navigation.PushModalAsync(new MainPage());  
+                //    await Navigation.PopModalAsync();
+                await Navigation.PushModalAsync(new MainPage());
         }
     }
 }
