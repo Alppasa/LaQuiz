@@ -21,7 +21,7 @@
         <ResourceDictionary>
             <OnPlatform x:Key="addBtnImage"
                         x:TypeArguments="x:String"
-                        iOS="Images/addBtn.png"
+                        iOS="Images/addBtnWhite.png"
                         Android="drawable/addBtnWhite"
                         WinPhone="Assets/addBtnWhite.png" />
         </ResourceDictionary>
@@ -63,9 +63,9 @@
                             </ViewCell.ContextActions>
 
                             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="5,5">
-                                <Label Text="{Binding SpielerName}" Font="Micro" HorizontalOptions="Start"
+                                <Label Text="{Binding SpielerName}" TextColor="White" Font="Micro" HorizontalOptions="Start"
                                        FontSize="20" />
-                                <Label Text="{Binding Score}" Font="Micro" HorizontalOptions="EndAndExpand"
+                                <Label Text="{Binding Score}" TextColor="White" Font="Micro" HorizontalOptions="EndAndExpand"
                                        HorizontalTextAlignment="End"
                                        FontSize="20" />
                             </StackLayout>
