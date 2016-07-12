@@ -31,7 +31,7 @@
 
         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand"
                      HorizontalOptions="CenterAndExpand">
-            <Label Text="Das Quiz"
+            <Label Text="La Quiz"
                    TextColor="#B8D8805E"
                    FontSize="40" Font="Large"
                    HorizontalOptions="StartAndExpand"

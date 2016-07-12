@@ -116,11 +116,11 @@
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Abbrechen" BorderRadius="5" BackgroundColor="#B8D8805E" HorizontalOptions="CenterAndExpand"
+        <StackLayout Orientation="Horizontal"Padding="0,5,0,0">
+            <Button Text="Abbrechen" BorderRadius="5" WidthRequest="150" BackgroundColor="#B8D8805E" HorizontalOptions="CenterAndExpand"
                     Clicked="OnCancelPressed" />
-            <Button x:Name="NextBtn" Text="Next" BorderRadius="5" BackgroundColor="#B14CD841"
-                    HorizontalOptions="CenterAndExpand" Clicked="OnNextPressed" IsEnabled="False" />
+            <Button x:Name="NextBtn" Text="Next" BorderRadius="5" WidthRequest="150" BackgroundColor="#B14CD841"
+                    HorizontalOptions="CenterAndExpand" Clicked="OnNextPressed" IsEnabled="False"/>
         </StackLayout>
     </StackLayout>
 
