@@ -3,9 +3,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:LaQuiz.Pages;assembly=LaQuiz"
-             x:Class="LaQuiz.Pages.MainPage"
-  BackgroundImage="drawable/blurblue.jpg" Appearing="MainPage_OnAppearing">
-  
+             x:Class="LaQuiz.Pages.MainPage">
+  <ContentPage.BackgroundImage>
+    <OnPlatform x:TypeArguments="x:String"
+                iOS="blur6.jpg"
+                Android="drawable/blur6"
+                WinPhone="Assets/blur6.jpg"/>
+  </ContentPage.BackgroundImage>
+
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="0,20,0,0"
+                Android="0,0,0,0"
+                WinPhone="0,0,0,0"/>
+  </ContentPage.Padding>
   <ContentPage.Resources>
     <ResourceDictionary>
       <OnPlatform x:Key="addBtnImage" 
