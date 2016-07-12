@@ -170,6 +170,7 @@
     <BundleResource Include="Images\DasQuizLogo.png" />
     <BundleResource Include="Images\blurnavy.jpg" />
     <BundleResource Include="Images\navy.jpg" />
+    <BundleResource Include="Images\navyIos.jpg" />
     <Content Include="Sounds\applause.mp3" />
     <AndroidResource Include="Sounds\billionaire.mp3" />
     <Content Include="Sounds\countdown.mp3" />

@@ -6,7 +6,7 @@
              x:Class="LaQuiz.Pages.MainPage">
     <ContentPage.BackgroundImage>
         <OnPlatform x:TypeArguments="x:String"
-                    iOS="Images/navy.jpg"
+                    iOS="Images/navyIos.jpg"
                     Android="drawable/navy.jpg"
                     WinPhone="Assets/navy.jpg" />
     </ContentPage.BackgroundImage>
@@ -78,7 +78,7 @@
         <AbsoluteLayout VerticalOptions="EndAndExpand" HorizontalOptions="Center">
             <StackLayout Orientation="Horizontal">
                 <Button x:Name="DeleteBtn" Text="Alles löschen" TextColor="White" BackgroundColor="#B8D8805E" BorderRadius="20"
-                        HorizontalOptions="Center"
+                        HorizontalOptions="CenterAndExpand" WidthRequest="300"
                         VerticalOptions="End" Margin="6,15" />
             </StackLayout>
         </AbsoluteLayout>

@@ -42,10 +42,13 @@ namespace LaQuiz.Droid.Services
        public bool PlayCountdown(bool on_off)
        {
             _mediaPlayer = MediaPlayer.Create(global::Android.App.Application.Context, Resource.Raw.countdown);
-            if(on_off)
-            _mediaPlayer.Start();
-            else                
-            _mediaPlayer.Pause();
+           if (on_off)
+               _mediaPlayer.Start();
+           else
+           {
+                _mediaPlayer.Pause();
+                _mediaPlayer.Stop();
+            }
             return true;
         }
    }
