@@ -7,9 +7,9 @@
   
   <ContentPage.BackgroundImage>
     <OnPlatform x:TypeArguments="x:String"
-                iOS="blur6.jpg"
-                Android="drawable/blur6"
-                WinPhone="Assets/blur6.jpg"/>
+                iOS="blurblue.jpg"
+                Android="drawable/blurblue"
+                WinPhone="Assets/blurblue.jpg"/>
   </ContentPage.BackgroundImage>
   
 <ContentPage.Padding>
