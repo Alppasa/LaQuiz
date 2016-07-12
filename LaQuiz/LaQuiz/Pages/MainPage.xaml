@@ -10,6 +10,7 @@
     <ResourceDictionary>
       <OnPlatform x:Key="addBtnImage" 
                   x:TypeArguments="x:String"
+                  iOS="addBtn.png"
                   Android="drawable/addBtnWhite"
                   WinPhone="Assets/addBtnWhite.png"/>
     </ResourceDictionary>

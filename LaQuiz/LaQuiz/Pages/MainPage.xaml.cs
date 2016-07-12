@@ -26,8 +26,13 @@ namespace LaQuiz.Pages
             //Btn Events
             DeleteBtn.Clicked += (sender, args) => DeleteClicked();
             addBtn.Clicked += (sender, args) => AddBtnClicked();
-        }
 
+            BenutzerListView.ItemTapped += (sender, args) =>
+            {
+                DisplayAlert("a", "a", "a");
+            };
+        }
+ 
         /// <summary>
         /// Bei Auswahl eines Spielers das Spiel starten
         /// </summary>

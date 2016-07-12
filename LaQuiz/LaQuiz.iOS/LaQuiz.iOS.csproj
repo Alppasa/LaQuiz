@@ -90,12 +90,14 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="SQLite_IOS.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
+    <BundleResource Include="Resources\german.db" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -154,6 +156,33 @@
       <Project>{7D157C3D-4539-4903-AB77-841305224A6F}</Project>
       <Name>LaQuiz</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="addBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="addBtnWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="blur1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="blur2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="blur3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="blur5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="blur6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="blurblue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="DasQuizLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

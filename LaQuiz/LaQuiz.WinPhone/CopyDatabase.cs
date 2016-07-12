@@ -7,8 +7,7 @@ namespace LaQuiz.WinPhone
     {
         public static async void CopyDatabaseAsync()
         {
-            var dbFile = await
-           ApplicationData.Current.LocalFolder.GetItemAsync("german.db") as StorageFile;
+            var dbFile = await ApplicationData.Current.LocalFolder.GetFileAsync("german.db") as StorageFile;
             if (null == dbFile)
             {
                 // first time ... copy the .db file from assets to local folder
