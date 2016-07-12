@@ -117,7 +117,7 @@
             </Label>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
-            <Button Text="Abbrechen" BorderRadius="5" BackgroundColor="#3DFF1627" HorizontalOptions="CenterAndExpand"
+            <Button Text="Abbrechen" BorderRadius="5" BackgroundColor="#B8D8805E" HorizontalOptions="CenterAndExpand"
                     Clicked="OnCancelPressed" />
             <Button x:Name="NextBtn" Text="Next" BorderRadius="5" BackgroundColor="#B14CD841"
                     HorizontalOptions="CenterAndExpand" Clicked="OnNextPressed" IsEnabled="False" />
