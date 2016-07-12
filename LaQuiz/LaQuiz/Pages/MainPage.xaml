@@ -11,7 +11,7 @@
       <OnPlatform x:Key="addBtnImage" 
                   x:TypeArguments="x:String"
                   Android="drawable/addBtnWhite"
-                  WinPhone="Assets/addBtn.png"/>
+                  WinPhone="Assets/addBtnWhite.png"/>
     </ResourceDictionary>
   </ContentPage.Resources>
   
