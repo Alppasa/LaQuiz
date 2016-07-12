@@ -18,7 +18,7 @@ namespace LaQuiz.iOS
             NSUrl url;
             SystemSound systemSound;
 
-            url = NSUrl.FromFilename("FaildSound.mp3");
+            url = NSUrl.FromFilename("Sounds/FaildSound.mp3");
             systemSound = new SystemSound(url);
             systemSound.PlayAlertSound();
             return true;
@@ -29,7 +29,7 @@ namespace LaQuiz.iOS
             NSUrl url;
             SystemSound systemSound;
 
-            url = NSUrl.FromFilename("applause.mp3");
+            url = NSUrl.FromFilename("Sounds/applause.mp3");
             systemSound = new SystemSound(url);
             systemSound.PlayAlertSound();
             return true;
@@ -40,7 +40,7 @@ namespace LaQuiz.iOS
             NSUrl url;
             SystemSound systemSound;
 
-            url = NSUrl.FromFilename("HighScore.mp3");
+            url = NSUrl.FromFilename("Sounds/HighScore.mp3");
             systemSound = new SystemSound(url);
             systemSound.PlayAlertSound();
             return true;
@@ -51,7 +51,7 @@ namespace LaQuiz.iOS
             NSUrl url;
             SystemSound systemSound;
 
-            url = NSUrl.FromFilename("FaildSound.mp3");
+            url = NSUrl.FromFilename("Sounds/HighScore.mp3");
             systemSound = new SystemSound(url);
             systemSound.PlayAlertSound();
             return true;
@@ -62,7 +62,7 @@ namespace LaQuiz.iOS
             NSUrl url;
             SystemSound systemSound;
 
-            url = NSUrl.FromFilename("countdown.mp3");
+            url = NSUrl.FromFilename("Sounds/countdown.mp3");
             systemSound = new SystemSound(url);
             systemSound.PlayAlertSound();
             return true;
