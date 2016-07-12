@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Text;
-using LaQuiz.iOS;
+using LaQuiz.iOS.Services;
 using LaQuiz.Interfaces;
 using SQLite;
 
 [assembly: Xamarin.Forms.Dependency(typeof(SQLite_IOS))]
-namespace LaQuiz.iOS
+namespace LaQuiz.iOS.Services
 {
     class SQLite_IOS : ISQLite
     {

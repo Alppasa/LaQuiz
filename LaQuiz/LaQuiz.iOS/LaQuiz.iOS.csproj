@@ -88,10 +88,10 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AudioService.cs" />
+    <Compile Include="Services\AudioService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="SQLite_IOS.cs" />
+    <Compile Include="Services\SQLite_IOS.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,33 +159,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="addBtn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="addBtnWhite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="blur1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="blur2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="blur3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="blur5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="blur6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="blurblue.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="DasQuizLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <BundleResource Include="Images\addBtn.png" />
+    <BundleResource Include="Images\addBtnWhite.png" />
+    <BundleResource Include="Images\blur1.jpg" />
+    <BundleResource Include="Images\blur2.jpg" />
+    <BundleResource Include="Images\blur3.jpg" />
+    <BundleResource Include="Images\blur6.jpg" />
+    <BundleResource Include="Images\blur5.jpg" />
+    <BundleResource Include="Images\blurblue.jpg" />
+    <BundleResource Include="Images\DasQuizLogo.png" />
     <Content Include="Sounds\applause.mp3" />
     <Content Include="Sounds\countdown.mp3" />
     <Content Include="Sounds\FaildSound.mp3" />

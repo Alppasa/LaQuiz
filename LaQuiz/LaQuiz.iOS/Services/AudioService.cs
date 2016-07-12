@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
-using AudioToolbox;
+﻿using AudioToolbox;
 using Foundation;
-using LaQuiz.iOS;
+using LaQuiz.iOS.Services;
 using LaQuiz.Interfaces;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AudioService))]
 
-namespace LaQuiz.iOS
+namespace LaQuiz.iOS.Services
 {
     class AudioService : IAudioService
     {

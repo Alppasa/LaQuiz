@@ -7,7 +7,7 @@
   
   <ContentPage.BackgroundImage>
     <OnPlatform x:TypeArguments="x:String"
-                iOS="blurblue.jpg"
+                iOS="Images/blurblue.jpg"
                 Android="drawable/blurblue"
                 WinPhone="Assets/blurblue.jpg"/>
   </ContentPage.BackgroundImage>
