@@ -27,6 +27,7 @@ namespace LaQuiz.Pages
             //Btn Events
             DeleteBtn.Clicked += (sender, args) => DeleteClicked();
             addBtn.Clicked += (sender, args) => AddBtnClicked();
+            NameEntry.Completed += (sender, args) => AddBtnClicked();
         }
 
         /// <summary>

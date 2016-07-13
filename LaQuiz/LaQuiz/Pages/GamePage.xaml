@@ -83,7 +83,7 @@
 
         </Grid>
 
-        <Label x:Name="label" Text="" HorizontalTextAlignment="Center" />
+        <Label x:Name="label" Text="" HorizontalTextAlignment="Center" TextColor="White" />
         <ProgressBar x:Name="progressBar" HeightRequest="5" Progress="5" BackgroundColor="#B8D8805E"/>
         <Label Text="{Binding qBody}" FontSize="30" HorizontalTextAlignment="Center" TextColor="White"
                BackgroundColor="#006A5E88" />
