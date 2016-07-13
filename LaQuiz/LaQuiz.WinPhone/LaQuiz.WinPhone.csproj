@@ -86,7 +86,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CopyDatabase.cs" />
-    <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -101,14 +100,6 @@
   <ItemGroup>
     <Content Include="Assets\addBtn.png" />
     <Content Include="Assets\addBtnWhite.png" />
-    <Content Include="Assets\blur1.jpg" />
-    <Content Include="Assets\blur2.jpg" />
-    <Content Include="Assets\blur3.jpg" />
-    <Content Include="Assets\blur5.jpg" />
-    <Content Include="Assets\blur6.jpg" />
-    <Content Include="Assets\blurblue.jpg" />
-    <Content Include="Assets\blurnavy.jpg" />
-    <Content Include="Assets\DasQuizLogo.png" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\navy.jpg" />

@@ -161,14 +161,7 @@
   <ItemGroup>
     <BundleResource Include="Images\addBtn.png" />
     <BundleResource Include="Images\addBtnWhite.png" />
-    <BundleResource Include="Images\blur1.jpg" />
-    <BundleResource Include="Images\blur2.jpg" />
-    <BundleResource Include="Images\blur3.jpg" />
-    <BundleResource Include="Images\blur6.jpg" />
-    <BundleResource Include="Images\blur5.jpg" />
-    <BundleResource Include="Images\blurblue.jpg" />
     <BundleResource Include="Images\DasQuizLogo.png" />
-    <BundleResource Include="Images\blurnavy.jpg" />
     <BundleResource Include="Images\navy.jpg" />
     <BundleResource Include="Images\navyIos.jpg" />
     <Content Include="Sounds\applause.mp3" />
