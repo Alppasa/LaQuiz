@@ -157,7 +157,10 @@ namespace LaQuiz.Pages
                 $"Du hast einen neuen Highscore: {thisModel.Score}\nErneut Spielen?", "Ja", "Nein");
             if (!answer)
                 await Navigation.PushModalAsync(new MainPage());
-        }
+			else
+				await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
+
+		}
 
         public async void OnWin()
         {
