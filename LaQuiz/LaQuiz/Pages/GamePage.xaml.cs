@@ -136,8 +136,10 @@ namespace LaQuiz.Pages
                     "Erneut Spielen?", "Ja", "Nein");
                 if (answer)
                     await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
+				else
+					await Navigation.PushModalAsync(new MainPage());
 
-            }
+			}
                 
         }
 
