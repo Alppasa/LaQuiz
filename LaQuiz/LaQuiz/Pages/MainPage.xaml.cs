@@ -35,11 +35,8 @@ namespace LaQuiz.Pages
         /// </summary>
         public async void OnSelection(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem == null)
-            {
-                return;
-            }
-            var spieler = (SpielerItem) e.SelectedItem;
+            //safe cast checks is e is null
+            var spieler = e.SelectedItem as SpielerItem;
 
             var answer =
                 await DisplayAlert("Start", "Hallo " + spieler.SpielerName + "!\nBist du bereit?", "Ja", "Nein");
@@ -52,10 +49,17 @@ namespace LaQuiz.Pages
 
         private void OnDelete(object sender, EventArgs e)
         {
-            //var item = (MenuItem)sender;
-            SpielerItem spieler = (SpielerItem) BenutzerListView.SelectedItem;
+
+            //safe cast
+            var item = ((MenuItem)sender);
+            var sp = item.CommandParameter as SpielerItem;
             var db = new SpielerDatabase();
+            db.DeletSpieler(sp.SpielerName);
+            var dba = DependencyService.Get<ISQLite>().GetConnection();
+            BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
+
         }
+
 
         #region Button Events
 

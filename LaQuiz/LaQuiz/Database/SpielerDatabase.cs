@@ -35,7 +35,7 @@ namespace LaQuiz.Database
 
         public void DeletSpieler(string spielerName)
         {
-            _sqLiteConnection.Query<SpielerItem>($"DELETE WHERE SpielerName = {spielerName}");
+            _sqLiteConnection.Delete(new SpielerItem {SpielerName = spielerName});
         }
         public void Update(string name, string score)
         {

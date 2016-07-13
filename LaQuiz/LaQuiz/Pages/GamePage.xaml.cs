@@ -174,8 +174,7 @@ namespace LaQuiz.Pages
             thisModel.Highscore = thisModel.Score;
 
 
-            var answer =
-                await
+            var answer = await
                     DisplayAlert($"Jetzt bist du Millionär ;) Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
             if (answer)
             {
