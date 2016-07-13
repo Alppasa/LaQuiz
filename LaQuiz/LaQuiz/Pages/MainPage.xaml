@@ -40,7 +40,7 @@
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Entry x:Name="NameEntry" Placeholder="Spieler hinzufügen" Margin="16,16" HorizontalOptions="FillAndExpand"
+            <Entry x:Name="NameEntry" Placeholder="Spieler hinzufügen" TextColor="White" Margin="16,16" HorizontalOptions="FillAndExpand"
                    BackgroundColor="Transparent" />
             <Button x:Name="addBtn"
                     Image="{StaticResource addBtnImage}"
