@@ -149,7 +149,7 @@ namespace LaQuiz.Pages
             db.Update(thisModel.Spielername, thisModel.Score);
             thisModel.Highscore = thisModel.Score;
 
-            await Task.Delay(1500);
+            await Task.Delay(2000);
             // NEW HIGH SCORE SOUND
             DependencyService.Get<IAudioService>().PlayHighScore();
             var answer = await DisplayAlert(
