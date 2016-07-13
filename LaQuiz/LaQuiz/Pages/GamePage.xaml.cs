@@ -118,6 +118,8 @@ namespace LaQuiz.Pages
         public async void OnWrongAnswer()
         {
             time = false;
+            //Play faild sound
+            DependencyService.Get<IAudioService>().PlayFaildSound();
 
             //check if player has new highscore
             if (thisModel.IsNewHigh(thisModel.Score))
@@ -125,8 +127,6 @@ namespace LaQuiz.Pages
 
             else
             {
-                //Play faild sound
-                DependencyService.Get<IAudioService>().PlayFaildSound();
 
                 await Task.Delay(2000);
 
