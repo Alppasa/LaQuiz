@@ -31,7 +31,7 @@ namespace LaQuiz.Pages
 
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                progressBar.ProgressTo(0, 15000, Easing.Linear);
+                progressBar.ProgressTo(0, 15000, Easing.SinOut);
                 //progressBar.Animate("SetProgress", (arg) => { progressBar.Progress = arg; }, 0, 1500, Easing.SinIn);
                 label.Text = $" Zeit: 00:{t}";
 
