@@ -47,17 +47,21 @@ namespace LaQuiz.Pages
         }
 
 
-        private void OnDelete(object sender, EventArgs e)
+        private async void OnDelete(object sender, EventArgs e)
         {
 
             //safe cast
             var item = ((MenuItem)sender);
             var sp = item.CommandParameter as SpielerItem;
             var db = new SpielerDatabase();
-            db.DeletSpieler(sp.SpielerName);
-            var dba = DependencyService.Get<ISQLite>().GetConnection();
-            BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
-
+            var answer =
+                await DisplayAlert("Löschen", $" Achtung!\n Möchtest du wirklich\n {sp.SpielerName} löschen?", "Ja", "Nein");
+            if (answer)
+            {
+                db.DeletSpieler(sp.SpielerName);
+                var dba = DependencyService.Get<ISQLite>().GetConnection();
+                BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
+            }
         }
 
 

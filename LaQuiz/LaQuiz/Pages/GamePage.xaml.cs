@@ -127,7 +127,6 @@ namespace LaQuiz.Pages
 
             else
             {
-
                 await Task.Delay(2000);
 
                 //Show display alert
@@ -173,12 +172,10 @@ namespace LaQuiz.Pages
             db.Update(thisModel.Spielername, thisModel.Score);
             thisModel.Highscore = thisModel.Score;
 
-
             var answer = await
                     DisplayAlert($"Jetzt bist du Millionär ;) Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
             if (answer)
             {
-                await Navigation.PopModalAsync();
                 await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
             }
             else
@@ -193,10 +190,7 @@ namespace LaQuiz.Pages
             var answer =
                 await DisplayAlert($"Zeit ist abgelaufen Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
             if (answer)
-            {
-                await Navigation.PopModalAsync();
                 await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
-            }
             else
             await Navigation.PushModalAsync(new MainPage());  
         }
@@ -204,12 +198,15 @@ namespace LaQuiz.Pages
         public async void OnNextPressed(object sender, EventArgs e)
         {
             //Lädt neue Frage mit entsprechendem Level
-            //Navigation.PopModalAsync();
             await Navigation.PushModalAsync(new GamePage(thisModel));
         }
 
         public async void OnCancelPressed(object sender, EventArgs e)
         {
+            if (thisModel.IsNewHigh(thisModel.Score))
+                OnHighscore();
+            else
+            {
             //Disyplay Alert
             var answer =
                 await DisplayAlert("Beenden", $" {thisModel.Spielername}, Runde wirklich Beenden?", "Ja", "Nein");
@@ -222,6 +219,8 @@ namespace LaQuiz.Pages
                 DependencyService.Get<IAudioService>().PlayCountdown(false);
                 await Navigation.PushModalAsync(new MainPage());
             }
+            }
+
         }
     }
 }
