@@ -181,13 +181,12 @@ namespace LaQuiz.Pages
                 await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
             }
             else
-                await Navigation.PopModalAsync();
-            //await Navigation.PushModalAsync(new MainPage());  
+            await Navigation.PushModalAsync(new MainPage());  
         }
 
         public async void OnTimePassed()
         {
-            Task.Delay(3000);
+            await Task.Delay(3000);
             DependencyService.Get<IAudioService>().PlayFaildSound();
 
             var answer =
@@ -198,8 +197,7 @@ namespace LaQuiz.Pages
                 await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
             }
             else
-                await Navigation.PopModalAsync();
-            //await Navigation.PushModalAsync(new MainPage());  
+            await Navigation.PushModalAsync(new MainPage());  
         }
 
         public async void OnNextPressed(object sender, EventArgs e)
