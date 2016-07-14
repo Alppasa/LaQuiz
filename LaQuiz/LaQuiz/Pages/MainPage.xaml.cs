@@ -43,7 +43,7 @@ namespace LaQuiz.Pages
             if (answer)
                 await Navigation.PushModalAsync(new GamePage(new QuizViewModel(spieler)));
             else
-                BenutzerListView.SelectedItem = null;
+                RefreshList();
         }
 
 
@@ -59,8 +59,7 @@ namespace LaQuiz.Pages
             if (answer)
             {
                 db.DeletSpieler(sp.SpielerName);
-                var dba = DependencyService.Get<ISQLite>().GetConnection();
-                BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
+                RefreshList();
             }
         }
 
@@ -69,7 +68,7 @@ namespace LaQuiz.Pages
 
         public void AddBtnClicked()
         {
-            var dba = DependencyService.Get<ISQLite>().GetConnection();
+            
             var db = new SpielerDatabase();
             if (NameEntry.Text != "")
             {
@@ -89,8 +88,13 @@ namespace LaQuiz.Pages
             {
                 DisplayAlert("Ups", "Bitte Namen eintragen", "OK");
             }
-
+            RefreshList();
             //ListeView aktuellisieren
+        }
+
+        public void RefreshList()
+        {
+            var dba = DependencyService.Get<ISQLite>().GetConnection();
             BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
         }
 
@@ -100,14 +104,13 @@ namespace LaQuiz.Pages
                 await DisplayAlert("Löschen", " Achtung!\n Möchtest du wirklich\n alle Spieler löschen?", "Ja", "Nein");
             if (answer)
             {
-                var dba = DependencyService.Get<ISQLite>().GetConnection();
                 var db = new SpielerDatabase();
 
                 //Nuter löschen
                 db.DeleteFromDb();
 
                 //ListeView aktuellisieren
-                BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
+                RefreshList();
             }
         }
 
@@ -125,8 +128,7 @@ namespace LaQuiz.Pages
         private void MainPage_OnAppearing(object sender, EventArgs e)
         {
             //ListeView aktualisieren  
-            var dba = DependencyService.Get<ISQLite>().GetConnection();
-            BenutzerListView.ItemsSource = dba.Table<SpielerItem>();
+            RefreshList();
         }
     }
 }

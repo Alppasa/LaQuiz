@@ -68,19 +68,21 @@ namespace LaQuiz.Pages
             //Check auf Antwort + Highlighten
             if (antwort == thisModel.Correct)
             {
-                //Play sound
-                DependencyService.Get<IAudioService>().PlayCorrectSound();
-
-                //erhöt das Level und den Score
-                thisModel.RightGuess();
-
-                //on right answer
+                //Color green
                 ColorMyLabel(antwort, false);
+                thisModel.RightGuess();
+                //on win
+                if (thisModel.Level == "Level: 16 von 15")
+                {
+                    OnWin();
+                    return;
+                }
+                //on right answer
+                //erhöt das Level und den Score
+                
+                DependencyService.Get<IAudioService>().PlayCorrectSound();
                 NextBtn.IsEnabled = true;
 
-                //on win
-                if (thisModel.Level == "16")
-                    OnWin();
             }
 
             else
@@ -166,14 +168,14 @@ namespace LaQuiz.Pages
         public async void OnWin()
         {
             //Play sound
-            DependencyService.Get<IAudioService>().PlayFaildSound();
+            DependencyService.Get<IAudioService>().PlayWinSound();
 
             var db = new SpielerDatabase();
             db.Update(thisModel.Spielername, thisModel.Score);
             thisModel.Highscore = thisModel.Score;
 
             var answer = await
-                    DisplayAlert($"Jetzt bist du Millionär ;) Pkt: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
+                    DisplayAlert($"Jetzt bist du Millionär ;) \nScore: {thisModel.Score}", "Erneut Spielen?", "Ja", "Nein");
             if (answer)
             {
                 await Navigation.PushModalAsync(new GamePage(new QuizViewModel(thisModel.thisPlayer)));
