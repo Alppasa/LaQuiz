@@ -15,7 +15,7 @@
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="0,20,0,0"
                     Android="0,0,0,0"
-                    WinPhone="0,0,0,0" />
+                    WinPhone="25,0,0,0" />
     </ContentPage.Padding>
     <ContentPage.Resources>
         <ResourceDictionary>

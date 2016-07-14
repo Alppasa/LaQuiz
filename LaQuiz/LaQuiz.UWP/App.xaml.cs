@@ -30,6 +30,7 @@ namespace LaQuiz.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            CopyDatabase.CopyDatabaseAsync();
         }
 
         /// <summary>

@@ -90,16 +90,21 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\FaildSound.mp3" />
+    <Content Include="Assets\german.db" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CopyDatabase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AudioService_UWP.cs" />
+    <Compile Include="Services\SQLite_UWP.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -108,6 +113,16 @@
     <None Include="Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\addBtn.png" />
+    <Content Include="Assets\addBtnWhite.png" />
+    <Content Include="Assets\DasQuizLogo.png" />
+    <Content Include="Assets\navy.jpg" />
+    <Content Include="Assets\navyIos.jpg" />
+    <Content Include="Assets\Sounds\applause.mp3" />
+    <Content Include="Assets\Sounds\billionaire.mp3" />
+    <Content Include="Assets\Sounds\countdown.mp3" />
+    <Content Include="Assets\Sounds\FaildSound.mp3" />
+    <Content Include="Assets\Sounds\HighScore.mp3" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -133,6 +148,7 @@
       <Name>LaQuiz</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
